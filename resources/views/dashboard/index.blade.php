@@ -2,24 +2,24 @@
 
 @section('content')
     <section class="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
-        <x-card title="Total Produk">
+        <x-card title="{{ __('messages.total_produk') }}">
             <p class="text-3xl font-bold text-slate-900 dark:text-white">{{ number_format($totalProduk) }}</p>
-            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Produk aktif terdaftar</p>
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{{ __('messages.produk_aktif_terdaftar') }}</p>
         </x-card>
 
-        <x-card title="Total Transaksi">
+        <x-card title="{{ __('messages.total_transaksi') }}">
             <p class="text-3xl font-bold text-slate-900 dark:text-white">{{ number_format($totalTransaksi) }}</p>
-            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Transaksi bulan ini</p>
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{{ __('messages.transaksi_bulan_ini') }}</p>
         </x-card>
 
-        <x-card title="Omzet Penjualan">
+        <x-card title="{{ __('messages.omzet_penjualan') }}">
             <p class="text-3xl font-bold text-slate-900 dark:text-white">Rp {{ number_format($totalPenjualan, 0, ',', '.') }}</p>
             <p class="mt-1 text-sm text-emerald-600 dark:text-emerald-400">+12.8% dari bulan lalu</p>
         </x-card>
 
-        <x-card title="Produk Terlaris">
+        <x-card title="{{ __('messages.produk_terlaris') }}">
             <p class="text-3xl font-bold text-slate-900 dark:text-white">{{ $topProduk->first()['nama_produk'] }}</p>
-            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{{ $topProduk->first()['terjual'] }} unit terjual</p>
+            <p class="mt-1 text-sm text-slate-500 dark:text-slate-400">{{ __('messages.unit_terjual', ['count' => $topProduk->first()['terjual']]) }}</p>
         </x-card>
     </section>
 

@@ -5,7 +5,7 @@
         <div class="h-10 w-10 rounded-2xl bg-gradient-to-br from-amber-400 to-teal-500"></div>
         <div>
             <p class="text-sm font-semibold text-slate-800 dark:text-slate-100">Plenger Club</p>
-            <p class="text-xs text-slate-500 dark:text-slate-400">Admin Dashboard</p>
+            <p class="text-xs text-slate-500 dark:text-slate-400">{{ __('messages.admin_dashboard') }}</p>
         </div>
     </div>
 
@@ -23,7 +23,7 @@
     </nav>
 
     <div class="mt-6 rounded-2xl bg-gradient-to-br from-slate-900 to-slate-700 p-4 text-slate-100 dark:from-slate-800 dark:to-slate-700">
-        <p class="text-sm font-semibold">Insights</p>
-        <p class="mt-1 text-xs text-slate-200/90">Pantau performa produk terlaris dan stok rendah setiap hari.</p>
+        <p class="text-sm font-semibold">{{ __('messages.insights') }}</p>
+        <p class="mt-1 text-xs text-slate-200/90">{{ __('messages.insights_subtitle') }}</p>
     </div>
 </aside>

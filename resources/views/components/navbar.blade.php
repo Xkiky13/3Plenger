@@ -7,14 +7,14 @@
             @click="sidebarOpen = true"
             type="button"
         >
-            <span class="sr-only">Open Sidebar</span>
+            <span class="sr-only">{{ __('messages.open_sidebar') }}</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </button>
 
         <div>
-            <p class="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">Sistem Penjualan</p>
+            <p class="text-xs font-medium uppercase tracking-wide text-slate-500 dark:text-slate-400">{{ __('messages.system_name') }}</p>
             <h1 class="text-base font-semibold text-slate-800 dark:text-slate-100">{{ $title }}</h1>
         </div>
     </div>
@@ -25,7 +25,7 @@
             class="rounded-xl p-2 text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800"
             @click="toggleTheme"
         >
-            <span class="sr-only">Toggle Theme</span>
+            <span class="sr-only">{{ __('messages.toggle_theme') }}</span>
             <svg x-show="!isDark" xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 3v2.5m0 13V21m8.49-8.5H18m-12 0H3.5m14.26-5.76-1.77 1.77M7.99 16.01l-1.77 1.77m0-11.04 1.77 1.77m8.77 8.77 1.77 1.77M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>

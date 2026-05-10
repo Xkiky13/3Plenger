@@ -69,6 +69,7 @@ window.appLayout = () => ({
 
 window.posPage = (products) => ({
 	products,
+	customerId: '',
 	customerName: '',
 	search: '',
 	cart: [],
@@ -117,12 +118,12 @@ window.posPage = (products) => ({
 	},
 
 	checkout() {
-		if (!this.customerName.trim()) {
+		if (!this.customerId && !this.customerName.trim()) {
 			window.dispatchEvent(
 				new CustomEvent('notify', {
 					detail: {
 						type: 'error',
-						message: 'Masukkan nama customer terlebih dahulu.',
+						message: 'Pilih customer atau isi customer baru.',
 					},
 				})
 			);
@@ -141,18 +142,25 @@ window.posPage = (products) => ({
 			return;
 		}
 
-		this.cart = [];
-		this.customerName = '';
-		this.search = '';
+		const payload = this.cart.map((item) => ({
+			id_produk: item.id_produk,
+			jumlah: item.jumlah,
+		}));
 
-		window.dispatchEvent(
-			new CustomEvent('notify', {
-				detail: {
-					type: 'success',
-					message: 'Checkout berhasil diproses.',
-				},
-			})
-		);
+		if (!this.$refs?.cartPayload || !this.$refs?.checkoutForm) {
+			window.dispatchEvent(
+				new CustomEvent('notify', {
+					detail: {
+						type: 'error',
+						message: 'Form checkout tidak ditemukan.',
+					},
+				})
+			);
+			return;
+		}
+
+		this.$refs.cartPayload.value = JSON.stringify(payload);
+		this.$refs.checkoutForm.submit();
 	},
 });
 

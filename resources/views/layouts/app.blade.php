@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title ?? 'Plenger Club' }}</title>
+    <title>{{ $title ?? __('messages.plenger_club') }}</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=plus-jakarta-sans:400,500,600,700" rel="stylesheet" />
@@ -24,12 +24,12 @@
 
         <div class="w-full max-w-72 shrink-0 lg:sticky lg:top-6 lg:h-[calc(100vh-3rem)]">
             <x-sidebar :menus="[
-                ['label' => 'Dashboard', 'route' => 'dashboard', 'icon' => '🏠'],
-                ['label' => 'Produk', 'route' => 'produk.index', 'icon' => '📦'],
-                ['label' => 'Transaksi', 'route' => 'transaksi.index', 'icon' => '🧾'],
-                ['label' => 'Riwayat Penjualan', 'route' => 'penjualan.index', 'icon' => '📚'],
-                ['label' => 'Customer', 'route' => 'customer.index', 'icon' => '👥'],
-                ['label' => 'Stok', 'route' => 'stok.index', 'icon' => '🏷️'],
+                ['label' => __('messages.dashboard'), 'route' => 'dashboard', 'icon' => '🏠'],
+                ['label' => __('messages.produk'), 'route' => 'produk.index', 'icon' => '📦'],
+                ['label' => __('messages.transaksi'), 'route' => 'transaksi.index', 'icon' => '🧾'],
+                ['label' => __('messages.laporan'), 'route' => 'penjualan.index', 'icon' => '📚'],
+                ['label' => __('messages.customer'), 'route' => 'customer.index', 'icon' => '👥'],
+                ['label' => __('messages.stok'), 'route' => 'stok.index', 'icon' => '🏷️'],
             ]" />
         </div>
 
@@ -48,7 +48,7 @@
     >
         <div class="panel flex items-center gap-3 px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200">
             <span class="h-4 w-4 animate-spin rounded-full border-2 border-slate-300 border-t-teal-500"></span>
-            Loading...
+            {{ __('messages.loading') }}
         </div>
     </div>
 
@@ -61,11 +61,11 @@
         <div class="rounded-2xl px-4 py-3 text-sm font-semibold text-white shadow-lg" :class="toastType === 'error' ? 'bg-rose-600' : 'bg-teal-600'" x-text="toastText"></div>
     </div>
 
-    <x-modal show="confirmOpen" title="Konfirmasi Aksi">
+    <x-modal show="confirmOpen" title="{{ __('messages.konfirmasi_aksi') }}">
         <p class="text-sm text-slate-600 dark:text-slate-300" x-text="confirmMessage"></p>
         <div class="mt-5 flex justify-end gap-2">
-            <x-button variant="secondary" @click="closeConfirm()">Batal</x-button>
-            <x-button variant="danger" @click="runConfirm()">Ya, lanjutkan</x-button>
+            <x-button variant="secondary" @click="closeConfirm()">{{ __('messages.batal') }}</x-button>
+            <x-button variant="danger" @click="runConfirm()">{{ __('messages.ya_lanjutkan') }}</x-button>
         </div>
     </x-modal>
 </body>
